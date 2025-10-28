@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jakartaee.org/jsf/html"
+      xmlns:ui="http://xmlns.jakartaee.org/jsf/facelets">
+
+<h:head>
+    <title>Inicio - Cajero ATM</title>
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <h2>Bienvenido al Cajero</h2>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Cuenta:" for="cuenta"/>
+            <h:inputText id="cuenta" value="#{cajeroBean.cuenta}" required="true"/>
+
+            <h:outputLabel value="PIN:" for="pin"/>
+            <h:inputSecret id="pin" value="#{cajeroBean.pin}" required="true"/>
+        </h:panelGrid>
+        <br/>
+        <h:commandButton value="Ingresar" action="#{cajeroBean.validarCliente}"/>
+        <h:messages globalOnly="false"/>
+    </h:form>
+
+    <h:panelGroup>
+        <h3>Clientes de prueba (solo para ver):</h3>
+        <ul>
+            <ui:repeat value="#{cajeroBean.clientesPrueba}" var="c">
+                <li>
+                    Cuenta: #{c.numeroCuenta} - Saldo: #{c.saldo}
+                </li>
+            </ui:repeat>
+        </ul>
+    </h:panelGroup>
+</h:body>
+</html>

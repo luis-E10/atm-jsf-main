@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jakartaee.org/jsf/html">
+<h:head>
+    <title>Menú - Cajero</title>
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+    <h2>Bienvenido, cuenta #{cajeroBean.clienteActual.numeroCuenta}</h2>
+    <p>Saldo actual: #{cajeroBean.clienteActual.saldo}</p>
+
+    <h:form>
+        <h:commandButton value="Depósito" action="deposito.xhtml?faces-redirect=true"/>
+        <h:commandButton value="Retiro" action="retiro.xhtml?faces-redirect=true"/>
+        <h:commandButton value="Cerrar sesión" action="#{cajeroBean.logout}"/>
+    </h:form>
+    <h:messages/>
+</h:body>
+</html>

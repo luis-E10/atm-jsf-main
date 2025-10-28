@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jakartaee.org/jsf/html">
+<h:head>
+    <title>Depósito</title>
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+    <h2>Depósito - Cuenta #{cajeroBean.clienteActual.numeroCuenta}</h2>
+    <p>Saldo actual: #{cajeroBean.clienteActual.saldo}</p>
+
+    <h:form>
+        <h:outputLabel value="Monto a depositar:" for="monto"/>
+        <h:inputText id="monto" value="#{cajeroBean.monto}" required="true"/>
+        <br/><br/>
+        <h:commandButton value="Depositar" action="#{cajeroBean.depositar}"/>
+        <h:commandButton value="Volver" action="menu.xhtml?faces-redirect=true"/>
+        <h:messages/>
+    </h:form>
+</h:body>
+</html>
